@@ -23,6 +23,7 @@ function SpotlightLayer(divid,options) {
 
     // configuration options
     this.options = {
+        map: null,                                  // add the layer to this map at the end of the constructor (Google)
         punchRadius : 20,                           // the width of holes to punch out
         fillColor : 'rgba(0, 0, 0, 0.5)',           // the color to fill the whole canvas, to darken it
         punchOffset: [ 0, 0 ]                       // intentionally shift the punchouts by X/Y pixels, to accommodate non-centered non-symmetric labels
