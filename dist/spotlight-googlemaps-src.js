@@ -52,6 +52,9 @@ SpotlightLayer.prototype.onRemove = function () {
 };
 
 SpotlightLayer.prototype.draw = function () {
+    // do we even exist yet? someone could assign markers and request a draw having never used setMap()
+    if (! this.container || ! this.canvas || ! this.canvasContext) throw "SpotlightLayer: Cannot call draw() yet. Try setMap() first.";
+
     // refresh our width & height in case the map has changed size
     this.canvas.width           = this.container.scrollWidth;
     this.canvas.height          = this.container.scrollHeight;
