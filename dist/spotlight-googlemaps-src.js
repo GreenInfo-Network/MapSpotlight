@@ -24,7 +24,8 @@ function SpotlightLayer(divid,options) {
     // configuration options
     this.options = {
         punchRadius : 20,                           // the width of holes to punch out
-        fillColor : 'rgba(0, 0, 0, 0.5)'            // the color to fill the whole canvas, to darken it
+        fillColor : 'rgba(0, 0, 0, 0.5)',           // the color to fill the whole canvas, to darken it
+        punchOffset: [ 0, 0 ]                       // intentionally shift the punchouts by X/Y pixels, to accommodate non-centered non-symmetric labels
     };
     for (var i in options) if (options.hasOwnProperty(i)) this.options[i] = options[i];
 
@@ -76,13 +77,17 @@ SpotlightLayer.prototype.draw = function () {
     var overlayProjection                       = this.getProjection();
     var radius                                  = this.options.punchRadius;
     var twopi                                   = 2 * Math.PI;
+    var offsetX                                 = this.options.punchOffset[0];
+    var offsetY                                 = this.options.punchOffset[1];
 
     for (var i=0, l=this._latlngs.length; i<l; i++) {
         var ll = this._latlngs[i];
         var px = overlayProjection.fromLatLngToContainerPixel(ll);
+        var x  = px.x + offsetX;
+        var y  = px.y + offsetY;
 
         this.canvasContext.beginPath();
-        this.canvasContext.arc(px.x, px.y, radius, 0, twopi, true);
+        this.canvasContext.arc(x, y, radius, 0, twopi, true);
         this.canvasContext.closePath();
         this.canvasContext.fill();
     }

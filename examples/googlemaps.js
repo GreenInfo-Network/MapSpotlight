@@ -30,7 +30,7 @@ google.maps.event.addDomListener(window, 'load', function () {
     //
     // the spotlight layer
     //
-    spotlight = new SpotlightLayer('map-canvas', { map:map, punchRadius:30 });
+    spotlight = new SpotlightLayer('map-canvas', { map:map, punchRadius:25, punchOffset:[0,-25] });
 
     //
     // and now our big flashy demo
