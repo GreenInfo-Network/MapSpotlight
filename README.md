@@ -7,7 +7,7 @@ The SpotlightLayer is supported for these map libraries. Simply load up the appr
 * Google Maps
 * Leaflet
 
-The best way to get started, is to grab the release and/or peruse the _examples_ folder.
+The best way to get started, is to grab the release and peruse the _examples_ folder.
 
 ![Screenshot](/extra/spotlight-screenshot.jpg?raw=true "Screenshot")
 
