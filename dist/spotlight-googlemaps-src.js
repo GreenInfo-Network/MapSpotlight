@@ -26,7 +26,10 @@ function SpotlightLayer(divid,options) {
         punchRadius : 20,                           // the width of holes to punch out
         fillColor : 'rgba(0, 0, 0, 0.5)'            // the color to fill the whole canvas, to darken it
     };
-    for (var i in options) if (this.options.hasOwnProperty(i)) this.options[i] = options[i];
+    for (var i in options) if (options.hasOwnProperty(i)) this.options[i] = options[i];
+
+    // afterthought: if the 'map' option was given then they want us to bind to a map right now
+    if (this.options.map) this.setMap( this.options.map );
 }
 SpotlightLayer.prototype = new google.maps.OverlayView();
 
