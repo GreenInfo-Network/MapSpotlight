@@ -5,8 +5,10 @@ Draw attention to specific markers on the map by darkening the map and "spotligh
 The SpotlightLayer is supported for these map libraries. Simply load up the appropriate _.js_ file as needed.
 
 * Google Maps
-* Leaflet (June 2015)
-* OpenLayers (June 2015)
+* Leaflet
+
+The best way to get started, is to grab the release and/or peruse the _examples_ folder.
+
 
 # Constructor and Options
 
@@ -31,6 +33,35 @@ The values are for X and Y. A positive X shifts the punchout to the right, and a
 _**map**_
 
 Optional; Google only. If supplied, the SpotlightLayer will call setMap() to connect itself to the specified map.
+
+
+# Methods
+
+_**draw()**_
+
+Redraw/refresh the display of the canvas fill and the punchouts.
+
+_**addLatLng(latlng, redraw?)**_
+
+Given a LatLng object (whatever map library you're using) add that spot as a punchout.
+
+Optional _redraw_ parameter will trigger _draw()_ after adding the new feature.
+
+_**addMarker(marker, redraw?)**_
+
+Given a Marker object (whatever map library you're using), extract the LatLng and add that spot as a punchout.
+
+Optional _redraw_ parameter will trigger _draw()_ after adding the new feature.
+
+_**addXY(lat, lon, redraw?)**_
+
+Given a numeric latitude and longitude, construct a LatLng and add that spot as a punchout.
+
+Optional _redraw_ parameter will trigger _draw()_ after adding the new feature.
+
+_**empty()**_
+
+Clear all punchouts, then hide the canvas so the map is not completely blacked out.
 
 
 # Credits
